@@ -17,3 +17,61 @@ li {
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: sans-serif;
+}
+
+/* -------------------------------------------------
+	Styles
+   ------------------------------------------------- */
+.wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #bbdefb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: rotateY(360deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.front {
+    background-color: white;
+}
+
+.back {
+    background-color: #bdbdbd;
+    transform: rotateY(180deg);
+}
