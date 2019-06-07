@@ -41,6 +41,7 @@ body {
     background-color: #fff;
     border-radius: 50%;
     position: relative;
+    z-index: 3;
 }
 
 .menu-btn span,
@@ -65,59 +66,95 @@ body {
     transform: translateY(-5px);
 }
 
+.menu-btn_active span {
+    height: 0;
+}
+
 .menu-btn span::after {
     transform: translateY(5px);
 }
 
 .menu-btn_active span:before {
-    transform: rotate(-35deg);
-    width: 10px;
-    transform-origin: right bottom;
-    margin-left: 0;
+    transform: rotate(-45deg);
+    transform-origin: center;
 }
 
 .menu-btn_active span:after {
-    transform: rotate(35deg);
-    width: 10px;
-    transform-origin: right top;
-    margin-left: 0;
+    transform: rotate(45deg);
+    transform-origin: center;
 }
 
 .menu-block {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.menu-nav a {
-    text-decoration: none;
-    color: #222;
-    text-transform: uppercase;
-    font-weight: 100;
-    display: inline-block;
-    margin-right: 20px;
-    transition: 1s;
-}
-
 .menu-nav {
-    transition: 0.2s;
-    transform: scaleX(0) translateX(0%);
-    transform-origin: right center;
-    opacity: 0;
-    visibility: hidden;
-    height: 50px;
-    line-height: 50px;
     background-color: #fff;
-    padding-right: 25px;
-    padding-left: 25px;
-    margin-right: -25px;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    height: 50px;
 }
 
-.menu-nav_active {
-    transform: scaleX(1) translateX(0%);
+.menu-nav__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.menu-nav__link {
+    transition: 0.5s;
+    transform-origin: right center;
+    transform: translateX(50%);
+    opacity: 0;
+}
+
+.menu-nav__link_active {
+    transform: translateX(0%);
     opacity: 1;
-    visibility: visible;
+}
+
+.menu-block {
+    position: relative;
+}
+
+.menu a {
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid;
+    transition: 0.4s;
+    position: absolute;
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    z-index: 0;
+}
+
+.menu a:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.menu a:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.menu a:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.menu_active a:nth-child(1) {
+    transform: translate(150%, 0%);
+}
+
+.menu_active a:nth-child(2) {
+    transform: translate(100%, 100%);
+}
+
+.menu_active a:nth-child(3) {
+    transform: translate(0%, 150%);
 }
