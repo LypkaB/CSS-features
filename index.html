@@ -12,17 +12,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <input type="checkbox" id="pizza" name="food">
-    <label for="pizza">Pizza</label>
-    <br>
-    <br>
-
-    <input type="checkbox" id="bread" name="food">
-    <label for="bread">Bread</label>
-    <br>
-    <br>
-
-    <input type="checkbox" id="pasta" name="food">
-    <label for="pasta">Pasta</label>
+    <div class="menu-area">
+        <ul>
+            <li><a href="#!">Home</a></li>
+            <li><a href="#!">About</a></li>
+            <li><a href="#!">Services</a>
+                <ul class="first-dropdown">
+                    <li><a href="#!">Logo Design</a></li>
+                    <li><a href="#!">WebDesign</a></li>
+                    <li><a href="#!">Web Development</a>
+                        <ul class="second-dropdown">
+                            <li><a href="#!">PHP</a></li>
+                            <li><a href="#!">Laravel</a></li>
+                            <li><a href="#!">WordPress</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#!">Portfolio</a></li>
+            <li><a href="#!">Contacts</a></li>
+        </ul>
+    </div>
 </body>
 </html>

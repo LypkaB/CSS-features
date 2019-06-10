@@ -4,6 +4,8 @@
 *,
 *::after,
 *::before {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -21,30 +23,65 @@ li {
 /* -------------------------------------------------
 	Styles
    ------------------------------------------------- */
-input[type="checkbox"] {
+.menu-area a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #cb3529;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu-area a:hover {
+    background: tomato;
+    color: #fff;
+}
+
+.menu-area ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu-area li {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.menu-area li:hover .first-dropdown > li {
+    display: block;
+    top: 0;
+}
+
+.first-dropdown li {
+    display: none;
+    position: relative;
+}
+
+.first-dropdown {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.first-dropdown li:hover .second-dropdown li {
+    display: block;
+}
+
+.second-dropdown li {
     display: none;
 }
 
-label {
-    padding-left: 20px;
-}
-
-label::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-left: -10px;
-    margin-right: 10px;
-    transition: 0.2s;
-    border-radius: 50%;
-    border: 1px solid red;
-}
-
-input[type="checkbox"]:checked + label::before {
-    text-align: center;
-    background-image: url("../images/checked.png");
-    -webkit-background-size: 100%;
-    background-size: 100%;
+.second-dropdown {
+    width: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 100%;
 }
