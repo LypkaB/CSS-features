@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
 /* -------------------------------------------------
 	Base styles
    ------------------------------------------------- */
@@ -23,65 +25,51 @@ li {
 /* -------------------------------------------------
 	Styles
    ------------------------------------------------- */
-.menu-area a {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #cb3529;
-    font-family: Poppins, sans-serif;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
+html {
+    height: 100%;
+    overflow: hidden;
 }
 
-.menu-area a:hover {
-    background: tomato;
-    color: #fff;
+body {
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: 'Amatic SC', cursive;
+    color: white;
 }
 
-.menu-area ul {
-    list-style: none;
-    display: flex;
-}
-
-.menu-area li {
-    width: 100%;
-    position: relative;
+header {
+    box-sizing: border-box;
+    min-height: 100vh;
     text-align: center;
+    padding-top: 20%;
+    transform-style: inherit;
+    width: 100vw;
 }
 
-.menu-area li:hover .first-dropdown > li {
+header::before {
+    content: '';
     display: block;
-    top: 0;
-}
-
-.first-dropdown li {
-    display: none;
-    position: relative;
-}
-
-.first-dropdown {
-    width: 100%;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-}
-
-.first-dropdown li:hover .second-dropdown li {
-    display: block;
-}
-
-.second-dropdown li {
-    display: none;
-}
-
-.second-dropdown {
-    width: 200px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+    left: 0;
+    right: 0;
+    bottom: 0;
     top: 0;
-    left: 100%;
+    z-index: -1;
+    transform-origin: center;
+    min-height: 100vh;
+    background: url("../images/img-1.jpeg") no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    /* parallax */
+    transform: translateZ(-1px) scale(2);
+}
+
+header h1 {
+    margin-top: -100px;
+    font-size: 42px;
 }
