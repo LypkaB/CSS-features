@@ -25,67 +25,69 @@ li {
    ------------------------------------------------- */
 body {
     font-family: sans-serif;
-    font-size: 24px;
-    font-weight: 300;
 }
 
-.links {
-    width: 80%;
-    margin: auto;
-}
-
-a {
+figure {
+    width: 300px;
+    height: 300px;
     position: relative;
-    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: #f06292;
 }
 
-.left a.top::before {
-    top: 0;
-}
-
-.left a::before {
-    content: '';
-    width: 0;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #000;
+figure h2 {
     transition: 0.2s;
+    transform: translateY(20px);
 }
 
-.left a:hover:before {
-    width: 100%;
-    left: 0;
-}
-
-.right a::before {
-    content: '';
-    width: 0;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #000;
+figure p {
     transition: 0.2s;
+    transform: translateY(-20px);
+    visibility: hidden;
+    opacity: 0;
 }
 
-.right a:hover:before {
-    width: 100%;
-}
-
-.center a::before {
+figure::before {
     content: '';
-    width: 100%;
-    height: 2px;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #000;
+    top: 5%;
+    right: 5%;
+    left: 5%;
+    bottom: 5%;
+    border-top: solid 2px;
+    border-bottom: solid 2px;
     transition: 0.2s;
     transform: scaleX(0);
 }
 
-.center a:hover:before {
-    transform: scaleX(1);
+figure:hover::before {
+    transform: scale(1);
+}
+
+figure::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    left: 5%;
+    bottom: 5%;
+    border-left: solid 2px;
+    border-right: solid 2px;
+    transition: 0.2s;
+    transform: scaleY(0);
+}
+
+figure:hover::after {
+    transform: scale(1);
+}
+
+figure:hover h2,
+figure:hover p {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
 }
