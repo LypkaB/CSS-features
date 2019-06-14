@@ -24,70 +24,46 @@ li {
 	Styles
    ------------------------------------------------- */
 body {
-    font-family: sans-serif;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    background-color: tomato;
 }
 
-figure {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.container {
+    transition: 0.2s;
+    transform-origin: left center;
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #333;
     color: #fff;
-    background-color: #f06292;
-}
-
-figure h2 {
     transition: 0.2s;
-    transform: translateY(20px);
+    transform: rotateY(50deg);
+    transform-origin: right center;
 }
 
-figure p {
-    transition: 0.2s;
-    transform: translateY(-20px);
-    visibility: hidden;
-    opacity: 0;
+.close-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
 }
 
-figure::before {
-    content: '';
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    left: 5%;
-    bottom: 5%;
-    border-top: solid 2px;
-    border-bottom: solid 2px;
-    transition: 0.2s;
-    transform: scaleX(0);
+.close-btn:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
-figure:hover::before {
-    transform: scale(1);
+.sidebar:target {
+    transform: rotateY(0deg);
 }
 
-figure::after {
-    content: '';
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    left: 5%;
-    bottom: 5%;
-    border-left: solid 2px;
-    border-right: solid 2px;
-    transition: 0.2s;
-    transform: scaleY(0);
-}
-
-figure:hover::after {
-    transform: scale(1);
-}
-
-figure:hover h2,
-figure:hover p {
-    transform: translateY(0);
-    visibility: visible;
-    opacity: 1;
+.sidebar:target ~ .container {
+    transform: rotateY(25deg);
 }
