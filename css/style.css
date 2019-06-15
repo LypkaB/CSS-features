@@ -24,46 +24,50 @@ li {
 	Styles
    ------------------------------------------------- */
 body {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    background-color: tomato;
+    font-family: sans-serif;
+    background-color: grey;
 }
 
 .container {
-    transition: 0.2s;
-    transform-origin: left center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.sidebar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 400px;
-    height: 100%;
-    background-color: #333;
+.button {
+    padding: 10px 20px;
+    position: relative;
+    display: inline-block;
     color: #fff;
-    transition: 0.2s;
-    transform: rotateY(50deg);
-    transform-origin: right center;
-}
-
-.close-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    font-size: 20px;
-}
-
-.close-btn:hover {
-    color: #fff;
+    background-color: tomato;
     text-decoration: none;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-.sidebar:target {
-    transform: rotateY(0deg);
+.button::before {
+    content: '';
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.6;
+    transform: translateX(-4em) skewX(-45deg);
 }
 
-.sidebar:target ~ .container {
-    transform: rotateY(25deg);
+.button:hover:before {
+    animation: move-light 0.5s;
+}
+
+@keyframes move-light {
+    from {
+        transform: translateX(-4em) skewX(-45deg);
+    }
+
+    to {
+        transform: translateX(10em) skewX(-45deg);
+    }
 }
