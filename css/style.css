@@ -24,50 +24,43 @@ li {
 	Styles
    ------------------------------------------------- */
 body {
+    margin: 25px auto;
     font-family: sans-serif;
-    background-color: grey;
+    background-color: #f1f1f1;
 }
 
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+span.title {
+    margin: 15px auto;
+    display: block;
+    text-align: center;
 }
 
-.button {
-    padding: 10px 20px;
+.basic-box {
+    width: 130px;
+    height: 65px;
+    margin: 10px auto;
     position: relative;
-    display: inline-block;
-    color: #fff;
-    background-color: tomato;
-    text-decoration: none;
-    border-radius: 5px;
-    overflow: hidden;
+    text-align: center;
+    line-height: 65px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-.button::before {
-    content: '';
-    width: 1.5em;
-    height: 100%;
+svg {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #fff;
-    opacity: 0.6;
-    transform: translateX(-4em) skewX(-45deg);
 }
 
-.button:hover:before {
-    animation: move-light 0.5s;
+svg rect {
+    stroke: #536DFE;
+    stroke-width: 1;
+    transition: 0.8s;
+    stroke-dasharray: 400, 0;
 }
 
-@keyframes move-light {
-    from {
-        transform: translateX(-4em) skewX(-45deg);
-    }
-
-    to {
-        transform: translateX(10em) skewX(-45deg);
-    }
+.basic-box:hover svg rect {
+    stroke-width: 5;
+    stroke-dasharray: 35, 245;
+    stroke-dashoffset: 38;
 }
