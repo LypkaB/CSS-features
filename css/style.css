@@ -1,49 +1,68 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: #003444;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #292929;
+    font-family: arial;
 }
 
-.container {
-    margin: 100px auto;
-    width: 600px;
+.card-box {
+    margin: 15px;
+    perspective: 500px;
 }
 
-.image-box {
+.card {
+    width: 150px;
+    height: 150px;
     position: relative;
-    overflow: hidden;
-}
-
-.image-box img {
-    width: 100%;
+    background: #fff;
+    transform-style: preserve-3d;
     transition: .5s;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
-.text-box {
-    width: 100%;
-    height: 100%;
+.facebook {
+    background: #3b5998;
+}
+
+.twitter {
+    background: #00aced;
+}
+
+.google-plus {
+    background: #dd4b39;
+}
+
+.card-front, .card-back {
+    width: 150px;
+    height: 150px;
     position: absolute;
     top: 0;
-    left: -100%;
-    background: rgba(255, 0, 0, 0.9);
-    transition: .5s;
-}
-
-.text-box h1 {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: arial;
-    color: #fff;
-}
-
-.image-box:hover .text-box {
     left: 0;
+    color: #fff;
+    backface-visibility: hidden;
 }
 
-.image-box:hover img {
-    transform: scale(1.2);
+.card-front {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-box:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
 }
