@@ -1,66 +1,200 @@
+/* -------------------------------------------------
+	Base styles
+   ------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
 }
 
-#video-container {
-    width: 100%;
-    height: 600px;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* -------------------------------------------------
+	Header
+   ------------------------------------------------- */
+header {
+    display: flex;
+}
+
+.nav__sidebar {
+    width: 60px;
+    height: 57px;
+    background-color: #202020;
+    color: #ccc;
     overflow: hidden;
-    position: relative;
 }
 
-video {
-    min-width: 100%;
-    min-height: 100%;
+.nav__sidebar input[type="checkbox"] {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+    left: -9999em;
 }
 
-.content {
-    width: 1000px;
-    text-align: center;
+.nav__sidebar ul {
+    width: 58px;
+    height: 100vh;
+    background-color: #202020;
+    position: absolute;
+    top: 57px;
+    transition: transform ease-out .3s;
+    transform: translateX(-100%);
+    overflow: hidden;
+}
+
+.nav__sidebar ul li {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.nav__sidebar li:hover {
+    background-color: #3a3a3a;
+    cursor: pointer;
+}
+
+.nav__sidebar ul i {
+    padding: 0 18px;
+    font-size: 24px;
+}
+
+.nav__sidebar li:hover i {
+    color: white;
+}
+
+.nav__sidebar ul span {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.nav__sidebar ul:hover {
+    width: 185px;
+    overflow: visible;
+}
+
+input[type="checkbox"]:checked ~ ul {
+    transform: translateX(0);
+}
+
+.nav__sidebar label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav__sidebar label span {
+    font-size: 24px;
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.content h1 {
-    font-family: arial;
-    font-size: 3em;
-    margin: 10px 0;
-    color: orange;
-    text-transform: uppercase;
+.nav__sidebar label span::before {
+    content: "\e8ae";
+    font-family: 'icomoon';
 }
 
-.content p {
-    font-family: arial;
-    font-size: 1em;
-    margin: 10px 0;
-    color: orange;
+.nav__sidebar ul:hover ~ label span::before {
+    content: "\e8a0";
 }
 
-section {
-    padding: 150px 200px;
-    text-align: center;
+.nav__menu {
+    width: 100%;
+    height: 57px;
+    background-color: #505050;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.section h1 {
-    font-family: arial;
-    font-size: 3em;
-    margin: 10px 0;
-    color: #262626;
-    text-transform: uppercase;
+.nav__menu-way {
+    display: flex;
+    align-items: center;
 }
 
-.section p {
-    font-family: arial;
-    font-size: 1em;
-    margin: 10px 0;
-    color: #262626;
+.nav__menu-way span {
+    margin-left: 25px;
+    color: #fff;
+}
+
+.nav__menu-way span:nth-child(1) {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.19px;
+}
+
+.nav__menu-way span:nth-child(2) {
+    font-size: 18px;
+    line-height: 26px;
+    color: #f4f4f4;
+}
+
+.nav__menu-way span:nth-child(3) {
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.19px;
+}
+
+.nav__menu-search form {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.search-btn,
+.nav__menu-search input,
+.dropdown-btn {
+    height: 28px;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.2);
+    border-color: transparent;
+    color: white;
+    outline: none;
+}
+
+.search-btn {
+    padding: 3px 3px 0 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor: pointer;
+}
+
+.nav__menu-search input {
+    width: 511px;
+}
+
+.nav__menu-search input::placeholder {
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    color: white;
+}
+
+.dropdown-btn {
+    padding-right: 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
 }
