@@ -1,200 +1,45 @@
-/* -------------------------------------------------
-	Base styles
-   ------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-}
-
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
-}
-
-ul,
-li {
-    list-style: none;
     margin: 0;
     padding: 0;
+    background-color: #f3f3f3;
 }
 
-a {
-    text-decoration: none;
-}
-
-/* -------------------------------------------------
-	Header
-   ------------------------------------------------- */
-header {
-    display: flex;
-}
-
-.nav__sidebar {
-    width: 60px;
-    height: 57px;
-    background-color: #202020;
-    color: #ccc;
-    overflow: hidden;
-}
-
-.nav__sidebar input[type="checkbox"] {
-    position: absolute;
-    left: -9999em;
-}
-
-.nav__sidebar ul {
-    width: 58px;
-    height: 100vh;
-    background-color: #202020;
-    position: absolute;
-    top: 57px;
-    transition: transform ease-out .3s;
-    transform: translateX(-100%);
-    overflow: hidden;
-}
-
-.nav__sidebar ul li {
-    height: 56px;
-    display: flex;
-    align-items: center;
-}
-
-.nav__sidebar li:hover {
-    background-color: #3a3a3a;
-    cursor: pointer;
-}
-
-.nav__sidebar ul i {
-    padding: 0 18px;
-    font-size: 24px;
-}
-
-.nav__sidebar li:hover i {
-    color: white;
-}
-
-.nav__sidebar ul span {
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.nav__sidebar ul:hover {
-    width: 185px;
-    overflow: visible;
-}
-
-input[type="checkbox"]:checked ~ ul {
-    transform: translateX(0);
-}
-
-.nav__sidebar label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-}
-
-.nav__sidebar label span {
-    font-size: 24px;
-    color: white;
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.nav__sidebar label span::before {
-    content: "\e8ae";
-    font-family: 'icomoon';
-}
-
-.nav__sidebar ul:hover ~ label span::before {
-    content: "\e8a0";
-}
-
-.nav__menu {
-    width: 100%;
-    height: 57px;
-    background-color: #505050;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav__menu-way {
-    display: flex;
-    align-items: center;
-}
-
-.nav__menu-way span {
-    margin-left: 25px;
-    color: #fff;
-}
-
-.nav__menu-way span:nth-child(1) {
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0.19px;
-}
-
-.nav__menu-way span:nth-child(2) {
-    font-size: 18px;
-    line-height: 26px;
-    color: #f4f4f4;
-}
-
-.nav__menu-way span:nth-child(3) {
-    font-size: 19px;
-    line-height: 24px;
-    letter-spacing: 0.19px;
-}
-
-.nav__menu-search form {
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.search-btn,
-.nav__menu-search input,
-.dropdown-btn {
-    height: 28px;
-    font-size: 16px;
-    background-color: rgba(240, 240, 240, 0.2);
-    border-color: transparent;
-    color: white;
+input[type="checkbox"] {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    border-radius: 20px;
+    background: #c6c6c6;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     outline: none;
 }
 
-.search-btn {
-    padding: 3px 3px 0 10px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    cursor: pointer;
+input:checked[type="checkbox"] {
+    background: #03a9f4;
 }
 
-.nav__menu-search input {
-    width: 511px;
+input[type="checkbox"]::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1.1);
+    transition: .5s;
 }
 
-.nav__menu-search input::placeholder {
-    font-size: 16px;
-    letter-spacing: 0.16px;
-    color: white;
-}
-
-.dropdown-btn {
-    padding-right: 10px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    cursor: pointer;
+input:checked[type="checkbox"]::before {
+    left: 40px;
 }
