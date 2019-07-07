@@ -1,51 +1,122 @@
 body {
     margin: 0;
     padding: 0;
-    background: #262626;
+    font-family: sans-serif;
 }
 
-.rating {
-    display: flex;
+.card {
+    width: 300px;
+    min-height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateY(180deg);
+    transform: translate(-50%, -50%);
 }
 
-.rating input {
-    display: none;
+.card .front {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #2196f3;
+    transition: 0.5s;
+    transform-origin: right;
+    color: white;
 }
 
-.rating label {
+.location {
+    width: 50%;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+}
+
+.more {
     display: block;
-    width: 50px;
+    width: 50%;
+    float: right;
+    text-align: right;
+    font-size: 24px;
     cursor: pointer;
 }
 
-.rating label::before {
-    content: '\f005';
-    font-family: FontAwesome;
-    display: block;
-    font-size: 50px;
-    color: #101010;
-    position: relative;
+.weather {
+    padding: 50px 0 20px;
+    text-align: center;
 }
 
-.rating label::after {
-    content: '\f005';
-    font-family: FontAwesome;
-    display: block;
-    font-size: 50px;
-    color: #1f9cff;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+.weather .fa {
+    font-size: 80px;
+}
+
+.weather h1,
+.forecast {
+    margin: 0;
+    padding: 0;
+}
+
+.weather h1 {
+    font-size: 56px;
+    line-height: 26px;
+}
+
+.weather h1 span {
+    font-size: 20px;
+}
+
+.forecast li {
+    display: flex;
+    padding: 10px 0;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
+.forecast li:last-child {
+    border-bottom: none;
+}
+
+.forecast li .day {
+    width: 50%;
+}
+
+.forecast li .temperature {
+    width: 50%;
+    text-align: right;
+}
+
+.card .back {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    color: white;
+    background: #ff2877;
+    box-sizing: border-box;
     position: absolute;
     top: 0;
-    opacity: 0;
+    left: 0;
+    transform-origin: left;
     transition: 0.5s;
+    transform: translateX(100%) rotateY(90deg);
 }
 
-.rating label:hover::after,
-.rating label:hover ~ label::after,
-.rating input:checked ~ label::after {
-    opacity: 1;
+.card .front.active {
+    transform: translateX(0) rotateY(0deg);
+}
+
+.card .front {
+    transform: translateX(-100%) rotateY(90deg);
+}
+
+.card .back.active {
+    transform: translateX(0) rotateY(0deg);
+}
+
+.go-back {
+    font-size: 24px;
+    text-align: right;
+}
+
+.go-back .fa {
+    cursor: pointer;
 }

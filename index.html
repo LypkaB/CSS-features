@@ -15,22 +15,122 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="rating">
-        <input type="radio" name="star" id="star-1">
-        <label for="star-1"></label>
+    <div class="card">
+        <div class="front active">
+            <div class="location">New Delhi</div>
 
-        <input type="radio" name="star" id="star-2">
-        <label for="star-2"></label>
+            <div class="more">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div>
 
-        <input type="radio" name="star" id="star-3">
-        <label for="star-3"></label>
+            <div class="weather">
+                <i class="fa fa-cloud" aria-hidden="true"></i>
+                <h1>
+                    8<sup>o</sup><br>
+                    <span>Today</span>
+                </h1>
+            </div>
 
-        <input type="radio" name="star" id="star-4">
-        <label for="star-4"></label>
+            <ul class="forecast">
+                <li>
+                    <div class="day">Sunday</div>
+                    <div class="temperature">
+                        <i class="fa fa-cloud" aria-hidden="true"></i>
+                        9<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Monday</div>
+                    <div class="temperature">
+                        <i class="fa fa-tint" aria-hidden="true"></i>
+                        6<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Sunday</div>
+                    <div class="temperature">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        2<sup>o</sup>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /.front -->
 
-        <input type="radio" name="star" id="star-5">
-        <label for="star-5">
-        </label>
+        <div class="back">
+            <div class="go-back">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            </div>
+
+            <ul class="forecast">
+                <li>
+                    <div class="day">Yesterday</div>
+                    <div class="temperature">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        3<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Today</div>
+                    <div class="temperature">
+                        <i class="fa fa-cloud" aria-hidden="true"></i>
+                        8<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Tomorrow</div>
+                    <div class="temperature">
+                        <i class="fa fa-tint" aria-hidden="true"></i>
+                        6<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Monday</div>
+                    <div class="temperature">
+                        <i class="fa fa-tint" aria-hidden="true"></i>
+                        6<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Tuesday</div>
+                    <div class="temperature">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        2<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Wednesday</div>
+                    <div class="temperature">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        2<sup>o</sup>
+                    </div>
+                </li>
+                <li>
+                    <div class="day">Thursday</div>
+                    <div class="temperature">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        2<sup>o</sup>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /.back -->
     </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $('.more').click(function() {
+                $('.back').addClass('active');
+                $('.front').removeClass('active');
+            });
+
+            $('.go-back').click(function() {
+                $('.back').removeClass('active');
+                $('.front').addClass('active');
+            });
+        });
+    </script>
 </body>
 </html>
