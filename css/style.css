@@ -4,119 +4,65 @@ body {
     font-family: sans-serif;
 }
 
-.card {
-    width: 300px;
-    min-height: 400px;
+ul {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-.card .front {
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    box-sizing: border-box;
-    background: #2196f3;
+ul li {
+    list-style: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: black;
     transition: 0.5s;
-    transform-origin: right;
+    font-size: 20px;
+    line-height: 50px;
     color: white;
-}
-
-.location {
-    width: 50%;
-    float: left;
-    text-align: left;
-    font-weight: bold;
-}
-
-.more {
-    display: block;
-    width: 50%;
-    float: right;
-    text-align: right;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.weather {
-    padding: 50px 0 20px;
     text-align: center;
 }
 
-.weather .fa {
-    font-size: 80px;
-}
-
-.weather h1,
-.forecast {
-    margin: 0;
-    padding: 0;
-}
-
-.weather h1 {
-    font-size: 56px;
-    line-height: 26px;
-}
-
-.weather h1 span {
-    font-size: 20px;
-}
-
-.forecast li {
-    display: flex;
-    padding: 10px 0;
-    font-weight: bold;
-    border-bottom: 2px solid white;
+ul li:hover {
+    color: #03a9f4;
     cursor: pointer;
 }
 
-.forecast li:last-child {
-    border-bottom: none;
-}
-
-.forecast li .day {
-    width: 50%;
-}
-
-.forecast li .temperature {
-    width: 50%;
-    text-align: right;
-}
-
-.card .back {
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    color: white;
-    background: #ff2877;
-    box-sizing: border-box;
+ul li span {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: left;
+    top: -35px;
+    left: 50%;
+    transform: translate(-50%, -20px);
+    width: 120px;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    color: white;
+    background-color: #03a9f4;
+    border-radius: 4px;
     transition: 0.5s;
-    transform: translateX(100%) rotateY(90deg);
+    opacity: 0;
+    visibility: hidden;
 }
 
-.card .front.active {
-    transform: translateX(0) rotateY(0deg);
+ul li:hover span {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
 }
 
-.card .front {
-    transform: translateX(-100%) rotateY(90deg);
-}
-
-.card .back.active {
-    transform: translateX(0) rotateY(0deg);
-}
-
-.go-back {
-    font-size: 24px;
-    text-align: right;
-}
-
-.go-back .fa {
-    cursor: pointer;
+ul li span::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: rotate(45deg) translateX(-50%);
+    background: #03a9f4;
+    z-index: -1;
 }
