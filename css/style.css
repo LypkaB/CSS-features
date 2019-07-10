@@ -4,43 +4,89 @@ body {
     font-family: sans-serif;
 }
 
-section {
-    width: 100%;
-    height: auto;
-    position: relative;
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-section h2 {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 20px 100px;
-    font-size: 40px;
-    color: white;
-    text-align: center;
+ul li {
+    margin: 0 10px;
+    list-style: none;
+    width: 80px;
+    height: 80px;
     background: #262626;
-    position: sticky;
-    top: 0;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
-section:nth-child(2) h2 {
-    background: #e743cc;
+ul li:hover {
+    background: #0070ff;
 }
 
-section:nth-child(3) h2 {
-    background: #9b59b6;
+ul li span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 4px solid white;
+    transition: 0.5s;
 }
 
-section:nth-child(4) h2 {
-    background: #2ecc71;
+ul li.prev span {
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%) rotate(-45deg);
+    border-right: none;
+    border-bottom: none;
 }
 
-section:nth-child(5) h2 {
-    background: #2980b9;
+ul li.prev:hover span {
+    left: 16%;
 }
 
-section p {
-    margin: 0;
-    padding: 80px 100px;
-    font-size: 24px;
+ul li.prev span::before {
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background: white;
+    transform-origin: left;
+    transform: rotate(45deg) translate(-2px, -1px) scaleX(0);
+    transition: 0.5s;
+}
+
+ul li.prev:hover span::before {
+    transform: rotate(45deg) translate(-2px, -1px) scaleX(1);
+}
+
+ul li.next span {
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%) rotate(-45deg);
+    border-top: none;
+    border-left: none;
+}
+
+ul li.next:hover span {
+    right: 16%;
+}
+
+ul li.next span::before {
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background: white;
+    transform-origin: right;
+    transform: rotate(45deg) translate(0, 25px) scaleX(0);
+    transition: 0.5s;
+}
+
+ul li.next:hover span::before {
+    transform: rotate(45deg) translate(0, 25px) scaleX(1);
 }
