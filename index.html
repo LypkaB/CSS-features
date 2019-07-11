@@ -12,9 +12,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <ul>
-        <li class="prev"><span></span></li>
-        <li class="next"><span></span></li>
-    </ul>
+    <div class="toggle"></div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.toggle').click(function() {
+                $(this).toggleClass('active');
+            })
+        })
+    </script>
 </body>
 </html>

@@ -2,91 +2,32 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-color: #262626;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
+.toggle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-ul li {
-    margin: 0 10px;
-    list-style: none;
-    width: 80px;
-    height: 80px;
-    background: #262626;
-    border-radius: 50%;
-    transition: 0.5s;
+    width: 240px;
+    height: 102px;
+    background: url('../images/menu.png');
     cursor: pointer;
 }
 
-ul li:hover {
-    background: #0070ff;
-}
-
-ul li span {
+.toggle::before {
+    content: url('../images/close.png');
+    width: 0;
+    height: 100%;
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 4px solid white;
-    transition: 0.5s;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s;
 }
 
-ul li.prev span {
-    top: 50%;
-    left: 20%;
-    transform: translateY(-50%) rotate(-45deg);
-    border-right: none;
-    border-bottom: none;
-}
-
-ul li.prev:hover span {
-    left: 16%;
-}
-
-ul li.prev span::before {
-    content: '';
-    position: absolute;
-    width: 38px;
-    height: 4px;
-    background: white;
-    transform-origin: left;
-    transform: rotate(45deg) translate(-2px, -1px) scaleX(0);
-    transition: 0.5s;
-}
-
-ul li.prev:hover span::before {
-    transform: rotate(45deg) translate(-2px, -1px) scaleX(1);
-}
-
-ul li.next span {
-    top: 50%;
-    right: 20%;
-    transform: translateY(-50%) rotate(-45deg);
-    border-top: none;
-    border-left: none;
-}
-
-ul li.next:hover span {
-    right: 16%;
-}
-
-ul li.next span::before {
-    content: '';
-    position: absolute;
-    width: 38px;
-    height: 4px;
-    background: white;
-    transform-origin: right;
-    transform: rotate(45deg) translate(0, 25px) scaleX(0);
-    transition: 0.5s;
-}
-
-ul li.next:hover span::before {
-    transform: rotate(45deg) translate(0, 25px) scaleX(1);
+.toggle.active::before {
+    width: 100%;
+    transition: width 0.5s;
 }
