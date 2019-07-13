@@ -8,59 +8,20 @@
 
     <title>«CSS» features</title>
 
-    <!-- Font -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <ul>
-        <li>
-            <a href="#!">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#!">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#!">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#!">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#!">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
+    <section></section>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $('section').mousemove(function(e) {
+            var moveX = (e.pageX * -1 / 15);
+            var moveY = (e.pageY * -1 / 15);
+            $(this).css('background-position', moveX + 'px ' + moveY + 'px')
+        })
+    </script>
 </body>
 </html>
