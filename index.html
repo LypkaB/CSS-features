@@ -12,6 +12,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="shadow"></div>
+    <div class="dropdown">
+        <button>Dropdown</button>
+        <ul>
+            <li><a href="#!">Item 1</a></li>
+            <li><a href="#!">Item 2</a></li>
+            <li><a href="#!">Item 3</a></li>
+            <li><a href="#!">Item 4</a></li>
+        </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                $('ul').toggleClass('active')
+            })
+        })
+    </script>
 </body>
 </html>
