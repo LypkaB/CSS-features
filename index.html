@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="menuToggle">Menu</div>
     <ul>
         <li>
             <a href="#!">
@@ -71,5 +72,15 @@
             </a>
         </li>
     </ul>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.menuToggle').on('click', function() {
+                $('ul').toggleClass('active')
+            })
+        })
+    </script>
 </body>
 </html>

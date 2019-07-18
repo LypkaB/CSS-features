@@ -90,3 +90,61 @@ ul li a .name span::before {
 ul li a:hover .name span {
     transform: translateY(20px);
 }
+
+.menuToggle {
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .menuToggle {
+        display: block;
+    }
+
+    ul {
+        display: block;
+        width: 90%;
+        padding: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        transform: translate(-50%, -50%) scaleY(0);
+        transform-origin: top;
+    }
+
+    ul.active {
+        transform: translate(-50%, -50%) scaleY(1);
+    }
+
+    ul li {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    ul li:last-child {
+        border-bottom: none;
+    }
+
+    ul li a {
+        padding: 0 20px;
+    }
+
+    ul li a .icon {
+        display: inline-block;
+        float: left;
+        margin: 0 auto;
+    }
+
+    ul li a .name {
+        display: inline-block;
+        width: auto;
+        margin: 10px;
+    }
+}
