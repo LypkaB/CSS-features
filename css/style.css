@@ -35,6 +35,37 @@ header nav ul {
 
 header nav ul li {
     list-style: none;
+    position: relative;
+}
+
+header nav ul li.sub-menu::before {
+    content: '\f0d7';
+    font-family: FontAwesome;
+    line-height: 50px;
+    color: white;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+header nav ul li.active.sub-menu::before {
+    content: '\f0d8';
+}
+
+header nav ul li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    background: #333;
+}
+
+header nav ul li.active ul {
+    display: block;
+}
+
+header nav ul li ul li {
+    display: block;
+    width: 200px;
 }
 
 header nav ul li a {
@@ -88,6 +119,15 @@ header nav ul li a.active {
 
     header nav ul li a {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    header nav ul li.active ul {
+        position: relative;
+        background: #003e6f;
+    }
+
+    header nav ul li ul li {
+        width: 100%;
     }
 
     .menu-toggle {
