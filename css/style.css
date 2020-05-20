@@ -4,133 +4,106 @@ body {
     font-family: sans-serif;
 }
 
-header {
-    box-sizing: border-box;
+.toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: black;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.toggle::before {
+    content: '+';
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0 100px;
-    background: #262626;
-}
-
-header .logo {
-    height: 50px;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 50px;
+    font-size: 50px;
+    line-height: 40px;
     color: white;
+    text-align: center;
+    border-radius: 50%;
+    background: black;
+    transition: 0.5s;
 }
 
-header nav {
-    float: right;
+.toggle.active::before {
+    transform: rotate(405deg);
+    color: black;
+    background: #ffeb3b;
 }
 
-header nav ul {
+.overlay {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: transform 0.5s;
+}
+
+.overlay.active {
+    transform: scale(100, 100);
+}
+
+.menu {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+}
+
+.menu.active {
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.menu ul {
     margin: 0;
     padding: 0;
-    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-header nav ul li {
+.menu ul li {
     list-style: none;
+}
+
+.menu ul li a {
+    margin: 20px 0;
+    display: block;
     position: relative;
-}
-
-header nav ul li.sub-menu::before {
-    content: '\f0d7';
-    font-family: FontAwesome;
-    line-height: 50px;
-    color: white;
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-}
-
-header nav ul li.active.sub-menu::before {
-    content: '\f0d8';
-}
-
-header nav ul li ul {
-    display: none;
-    position: absolute;
-    left: 0;
-    background: #333;
-}
-
-header nav ul li.active ul {
-    display: block;
-}
-
-header nav ul li ul li {
-    display: block;
-    width: 200px;
-}
-
-header nav ul li a {
-    display: block;
-    height: 50px;
-    padding: 0 20px;
-    line-height: 50px;
+    font-size: 48px;
+    font-weight: bold;
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-header nav ul li a:hover,
-header nav ul li a.active {
-    color: white;
-    background: #2196f3;
+.menu ul li a::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: 5px;
+    width: 100%;
+    height: 20px;
+    background: #ffeb3b;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
 }
 
-.menu-toggle {
-    display: none;
-    float: right;
-    font-size: 24px;
-    line-height: 50px;
-    color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 991px) {
-    header {
-        padding: 0 20px;
-    }
-
-    header nav {
-        position: absolute;
-        width: 100%;
-        height: calc(100vh - 50px);
-        top: 50px;
-        left: -100%;
-        background: #333;
-        transition: 0.5s;
-    }
-
-    header nav.active {
-        left: 0;
-    }
-
-    header nav ul {
-        display: block;
-        text-align: center;
-    }
-
-    header nav ul li a {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
-    header nav ul li.active ul {
-        position: relative;
-        background: #003e6f;
-    }
-
-    header nav ul li ul li {
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
+.menu ul li a:hover::before {
+    transform: scaleX(1);
 }
