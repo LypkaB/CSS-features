@@ -1,109 +1,102 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
-.toggle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: black;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.toggle::before {
-    content: '+';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 50px;
-    line-height: 40px;
-    color: white;
-    text-align: center;
-    border-radius: 50%;
-    background: black;
-    transition: 0.5s;
-}
-
-.toggle.active::before {
-    transform: rotate(405deg);
-    color: black;
-    background: #ffeb3b;
-}
-
-.overlay {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.95);
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    transition: transform 0.5s;
-}
-
-.overlay.active {
-    transform: scale(100, 100);
-}
-
-.menu {
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    z-index: 1;
-}
-
-.menu.active {
-    visibility: visible;
-    transition-delay: 0.5s;
-}
-
-.menu ul {
-    margin: 0;
-    padding: 0;
+.search {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: width 0.5s;
+    overflow: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.menu ul li {
-    list-style: none;
+.search.active {
+    width: 600px;
 }
 
-.menu ul li a {
-    margin: 20px 0;
-    display: block;
-    position: relative;
-    font-size: 48px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.menu ul li a::before {
-    content: '';
+.search input {
+    width: calc(100% - 90px);
+    height: 60px;
+    padding: 0 10px;
+    font-size: 36px;
+    color: #666;
+    border: none;
+    outline: none;
     position: absolute;
-    left: -10px;
-    bottom: 5px;
-    width: 100%;
-    height: 20px;
-    background: #ffeb3b;
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s;
+    top: 10px;
+    left: 10px;
 }
 
-.menu ul li a:hover::before {
-    transform: scaleX(1);
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    transition: 0.5s;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.icon::before,
+.search.active .icon::before,
+.search.active .icon::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    transition: 0.5s;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.icon::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    border-left: 2px solid #262626;
+    border-radius: 0;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    position: absolute;
+    top: 25px;
+    left: 35px;
+}
+
+.search.active .icon {
+    background-color: #ff355a;
+}
+
+.search.active .icon::before {
+    width: 18px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+    top: 7px;
+    left: 13px;
+}
+
+.search.active .icon::after {
+    width: 18px;
+    height: 30px;
+    border: none;
+    border-radius: 0;
+    border-right: 2px solid white;
+    transform: rotate(-45deg);
+    top: 20px;
+    left: 13px;
 }
