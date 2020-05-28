@@ -12,17 +12,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="search">
-        <input type="text" placeholder="Search...">
-        <div class="icon"></div>
+    <div class="toggle">
+        <span></span>
     </div>
 
     <!-- Scripts -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('.icon').on('click', function() {
-                $('.search').toggleClass('active')
+            $('.toggle').on('click', function() {
+                $('body').toggleClass('active');
+                $('.toggle').toggleClass('active')
             });
         })
     </script>

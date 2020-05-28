@@ -1,102 +1,64 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #262626;
+    transition: 2s;
 }
 
-.search {
-    width: 80px;
-    height: 80px;
+body.active {
+    background-color: #ff0052;
+}
+
+.toggle {
+    width: 50px;
+    height: 50px;
     background-color: white;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    transition: width 0.5s;
-    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.search.active {
-    width: 600px;
-}
-
-.search input {
-    width: calc(100% - 90px);
-    height: 60px;
-    padding: 0 10px;
-    font-size: 36px;
-    color: #666;
-    border: none;
-    outline: none;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 4px;
-    transition: 0.5s;
+    overflow: hidden;
     cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
 }
 
-.icon::before,
-.search.active .icon::before,
-.search.active .icon::after {
+.toggle span {
+    width: calc(100% - 14px);
+    height: 3px;
+    background-color: #262626;
+    box-shadow: 0 -12px 0 #262626, 0 12px 0 #262626;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition-property: transform, box-shadow;
+    transition-delay: 0s, 1s;
+    transition-duration: 0.5s, 0.5s;
+}
+
+.toggle.active span {
+    box-shadow: 50px -12px 0 #262626, -50px 12px 0 #262626;
+    transform: translate(-50%, -50%) rotate(-315deg);
+    transition-property: box-shadow, transform;
+    transition-delay: 0s, 0.5s;
+    transition-duration: 0.5s, 0.5s;
+}
+
+.toggle span::before {
     content: '';
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    border: 2px solid #262626;
-    border-radius: 50%;
+    width: 3px;
+    height: 36px;
+    background-color: #262626;
     transition: 0.5s;
+    transition-delay: 0.5s;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.icon::after {
-    content: '';
-    width: 18px;
-    height: 18px;
-    background-color: transparent;
-    border-left: 2px solid #262626;
-    border-radius: 0;
-    transform: rotate(-45deg);
-    transition: 0.5s;
-    position: absolute;
-    top: 25px;
-    left: 35px;
-}
-
-.search.active .icon {
-    background-color: #ff355a;
-}
-
-.search.active .icon::before {
-    width: 18px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
-    border-right: 2px solid white;
-    transform: rotate(45deg);
-    top: 7px;
-    left: 13px;
-}
-
-.search.active .icon::after {
-    width: 18px;
-    height: 30px;
-    border: none;
-    border-radius: 0;
-    border-right: 2px solid white;
-    transform: rotate(-45deg);
-    top: 20px;
-    left: 13px;
+.toggle.active span::before {
+    top: 50%;
+    transition-delay: 1s;
 }
