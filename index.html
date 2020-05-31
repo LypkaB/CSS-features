@@ -8,12 +8,25 @@
 
     <title>«CSS» features</title>
 
+    <!-- Font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="toggle">
-        <span></span>
+    <div class="share">
+        <div class="toggle"></div>
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        </ul>
     </div>
 
     <!-- Scripts -->
@@ -21,8 +34,8 @@
     <script>
         $(document).ready(function() {
             $('.toggle').on('click', function() {
-                $('body').toggleClass('active');
-                $('.toggle').toggleClass('active')
+                $('.toggle').toggleClass('active');
+                $('ul').toggleClass('active');
             });
         })
     </script>
