@@ -15,29 +15,37 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="share">
-        <div class="toggle"></div>
-        <ul>
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-        </ul>
+    <div class="container">
+        <div class="box">
+            <div class="icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+            <div class="content">
+                <h3>Search</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur aut delectus,
+                    dolore fugiat iure, magnam magni.
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+            <div class="content">
+                <h3>User</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur aut delectus,
+                    dolore fugiat iure, magnam magni.
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+            <div class="content">
+                <h3>Location</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur aut delectus,
+                    dolore fugiat iure, magnam magni.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.toggle').on('click', function() {
-                $('.toggle').toggleClass('active');
-                $('ul').toggleClass('active');
-            });
-        })
-    </script>
 </body>
 </html>
