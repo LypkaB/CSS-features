@@ -1,69 +1,58 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>«CSS» features</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="box">
-            <div class="content">
-                <img src="images/washing-hand.svg" alt="">
-                <p>Wash hands with soap and water after touching animals and animal products</p>
-            </div>
+    <div class="radios-boxes">
+        <div class="radios">
+            <input type="radio" name="radio" id="radioFirst" class="radio" value="r">
+            <input type="radio" name="radio" id="radioSecond" class="radio" value="k">
+            <input type="radio" name="radio" id="radioThird" class="radio" value="t">
+            <input type="radio" name="radio" id="radioFourth" class="radio" value="s">
+
+            <div class="ball"></div>
         </div>
 
-        <div class="box">
-            <div class="content">
-                <img src="images/cold.svg" alt="">
-                <p>When coughing and sneezing cover mouth and nose with flexed elbow or tissue</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <img src="images/flight.svg" alt="">
-                <p>Avoid travel if you have a fever and cough</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <img src="images/first-aid-kit.svg" alt="">
-                <p>If you have a fever, cough and difficulty breathing seek medical care early</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <img src="images/medical-mask.svg" alt="">
-                <p>
-                    If you are coughing or sneezing, wear a mask and must to know how to use it and dispose of it
-                    properly
-                </p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <img src="images/cooking.svg" alt="">
-                <p>Eat only well-cooked food</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <img src="images/fever.svg" alt="">
-                <p>Avoid close contact with animals that are sick</p>
-            </div>
+        <div class="labels">
+            <label for="radioFirst" class="label">HOME</label>
+            <label for="radioSecond" class="label">GALLERY</label>
+            <label for="radioThird" class="label">CONTACT</label>
+            <label for="radioFourth" class="label">ABOUT US</label>
         </div>
     </div>
+
+    <!-- Script -->
+    <script>
+        let radios = document.querySelectorAll('.radio'),
+            labels = document.querySelectorAll('.label'),
+            ball = document.querySelector('.ball'),
+            prevRadio, prevLabel;
+
+        radios.forEach((radio, index) => {
+            radio.addEventListener('click', () => {
+                if (prevRadio) prevRadio.classList.toggle('active');
+
+                if (prevLabel) prevLabel.classList.toggle('active');
+
+                radio.classList.toggle('active');
+                prevRadio = radio;
+                labels[index].classList.toggle('active');
+                prevLabel = labels[index];
+                ball.className = `ball pos${index}`;
+            });
+        });
+    </script>
 </body>
 </html>
