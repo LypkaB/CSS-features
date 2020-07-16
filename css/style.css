@@ -10,96 +10,88 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #ffaf00, #bb02ff) fixed;
+    background: #111;
 }
 
-.container {
-    width: 1150px;
+.list {
+    width: 350px;
+    background: white;
+    position: relative;
+}
+
+.list h2 {
+    padding: 10px 20px;
+    font-weight: 600;
+    color: white;
+    background: #03a9f4;
+}
+
+.list ul {
     padding: 20px;
+    position: relative;
+}
+
+.list ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    position: relative;
+}
+
+.list ul li:last-child {
+    border-bottom: none;
+}
+
+.list ul li label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.list ul li label input {
+    visibility: hidden;
+    appearance: none;
+}
+
+.list ul li label p {
+    position: absolute;
+}
+
+.list ul li label span {
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    border-radius: 50%;
+    border: 1px solid #ccc;
     position: relative;
 }
 
-.container .card {
-    width: 300px;
-    height: 420px;
-    margin: 20px;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-    transition: 0.5s;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-}
-
-.container:hover .card {
-    filter: blur(20px);
-    transform: scale(0.9);
-    opacity: 0.5;
-}
-
-.container .card:hover {
-    filter: blur(0);
-    transform: scale(1.1);
-    opacity: 1;
-}
-
-.container .card .circle {
-    width: 100%;
-    height: 100%;
-    background: black;
-    text-align: center;
-    clip-path: circle(180px at center 0);
-    position: relative;
-}
-
-.container .card .circle h2 {
-    padding: 30px 0;
-    font-size: 4.5em;
-    color: white;
-}
-
-.container .card .content {
-    padding: 10px;
-    text-align: center;
+.list ul li label span::before {
+    content: '';
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
     position: absolute;
-    bottom: 10px;
+    top: 5px;
+    transform: rotate(-40deg);
 }
 
-.container .card .content p {
-    color: #666;
+.list ul li label input:checked ~ p {
+    text-decoration: line-through;
+    color: #ccc;
 }
 
-.container .card .content a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: black;
-    border-radius: 40px;
-    color: white;
-    text-decoration: none;
-    position: relative;
+.list ul li label input:checked ~ span {
+    background: #03a9f4;
+    border: 1px solid #03a9f4;
 }
 
-.container .card .content a:hover {
-    background-color: red;
-}
-
-.container .card:nth-child(1) .circle,
-.container .card:nth-child(1) .circle a {
-    background: #ffaf00;
-}
-
-.container .card:nth-child(2) .circle,
-.container .card:nth-child(2) .circle a {
-    background: #da2268;
-}
-
-.container .card:nth-child(3) .circle,
-.container .card:nth-child(3) .circle a {
-    background: #bb02ff;
+.list ul li label input:checked ~ span::before {
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
