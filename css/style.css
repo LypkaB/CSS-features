@@ -1,97 +1,154 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    min-height: 100vh;
+    background: black;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background: #111;
-}
-
-.list {
-    width: 350px;
-    background: white;
+    padding: 100px;
+    overflow: hidden;
     position: relative;
 }
 
-.list h2 {
-    padding: 10px 20px;
-    font-weight: 600;
-    color: white;
-    background: #03a9f4;
-}
-
-.list ul {
-    padding: 20px;
-    position: relative;
-}
-
-.list ul li {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    list-style: none;
-    position: relative;
-}
-
-.list ul li:last-child {
-    border-bottom: none;
-}
-
-.list ul li label {
+section header {
+    width: 100%;
+    padding: 40px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+section header .logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+section header .toggle {
+    width: 40px;
+    height: 40px;
+    background: url('../images/menu.png') no-repeat center;
+    background-size: 30px;
     cursor: pointer;
     position: relative;
 }
 
-.list ul li label input {
-    visibility: hidden;
-    appearance: none;
-}
-
-.list ul li label p {
+.bg {
+    width: 100%;
+    height: 100%;
     position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: center;
+    object-fit: cover;
 }
 
-.list ul li label span {
-    width: 20px;
-    height: 20px;
+.bird {
+    max-height: 80%;
+    position: absolute;
+    right: 100px;
+    bottom: 0;
+    z-index: 100;
+}
+
+.content {
+    max-width: 600px;
+    position: absolute;
+    left: 100px;
+    z-index: 10;
+}
+
+.content h2 {
+    font-size: 3.5em;
+    font-weight: 400;
+    line-height: 2em;
+    color: white;
+}
+
+.content h2 span {
+    font-size: 3.5em;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.content p {
+    margin-top: -15px;
+    color: white;
+}
+
+.content a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+.sci {
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    border: 1px solid #ccc;
+    flex-direction: column;
+    padding: 20px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    display: inline-block;
+    transform: scale(0.5);
+}
+
+.text-blocks {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+.text-blocks .block {
+    max-width: 500px;
+    margin-right: 40px;
+    padding: 20px;
+    background: rgba(0, 255, 0, 0.2);
     position: relative;
 }
 
-.list ul li label span::before {
-    content: '';
-    width: 10px;
-    height: 5px;
-    border-left: 2px solid #ccc;
-    border-bottom: 2px solid #ccc;
-    position: absolute;
-    top: 5px;
-    transform: rotate(-40deg);
+.text-blocks .block h3 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
 }
 
-.list ul li label input:checked ~ p {
-    text-decoration: line-through;
-    color: #ccc;
-}
-
-.list ul li label input:checked ~ span {
-    background: #03a9f4;
-    border: 1px solid #03a9f4;
-}
-
-.list ul li label input:checked ~ span::before {
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+.text-blocks .block p {
+    color: white;
 }

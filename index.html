@@ -9,58 +9,69 @@
     <title>«CSS» features</title>
 
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="list">
-        <h2>To Do List</h2>
-        <ul>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Eat</p>
-                    <span></span>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Drink</p>
-                    <span></span>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Work</p>
-                    <span></span>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Exercise</p>
-                    <span></span>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Bath</p>
-                    <span></span>
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input type="checkbox" name="">
-                    <p>Sleep</p>
-                    <span></span>
-                </label>
-            </li>
+    <section>
+        <header>
+            <a href="#" class="logo">World</a>
+            <div class="toggle"></div>
+        </header>
+
+        <img src="images/bg.jpg" alt="" class="bg">
+        <img src="images/bird.png" alt="" class="bird">
+
+        <div class="content">
+            <h2>We can save The<br><span>Earth</span></h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias animi aperiam cupiditate delectus in,
+                inventore iste iusto maiores nisi odit, qui quisquam rem soluta tenetur. Architecto incidunt, iusto
+                laboriosam quasi repudiandae soluta suscipit temporibus!
+            </p>
+            <a href="#">Join Us</a>
+        </div>
+
+        <ul class="sci">
+            <li><a href="#"><img src="images/facebook.png" alt="facebook"></a></li>
+            <li><a href="#"><img src="images/twitter.png" alt="twitter"></a></li>
+            <li><a href="#"><img src="images/instagram.png" alt="instagram"></a></li>
         </ul>
-    </div>
+
+        <div class="text-blocks">
+            <div class="block">
+                <h3>Defenders of Earth</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores, sunt tempore
+                    temporibus unde veniam?
+                </p>
+            </div>
+            <div class="block">
+                <h3>How to save Water</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores, sunt tempore
+                    temporibus unde veniam?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const bg = document.querySelector('.bg'),
+                  bird = document.querySelector('.bird'),
+                  content = document.querySelector('.content');
+
+            bg.style.width = 100 + e.pageX/100 + '%';
+            bg.style.height = 100 + e.pageX/100 + '%';
+
+            bird.style.right = 100 + e.pageX/2 + 'px';
+
+            content.style.left = 100 + e.pageX/2.5 + 'px';
+        })
+    </script>
 </body>
 </html>
