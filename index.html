@@ -15,63 +15,79 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section>
-        <header>
-            <a href="#" class="logo">World</a>
-            <div class="toggle"></div>
-        </header>
-
-        <img src="images/bg.jpg" alt="" class="bg">
-        <img src="images/bird.png" alt="" class="bird">
-
-        <div class="content">
-            <h2>We can save The<br><span>Earth</span></h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias animi aperiam cupiditate delectus in,
-                inventore iste iusto maiores nisi odit, qui quisquam rem soluta tenetur. Architecto incidunt, iusto
-                laboriosam quasi repudiandae soluta suscipit temporibus!
-            </p>
-            <a href="#">Join Us</a>
-        </div>
-
-        <ul class="sci">
-            <li><a href="#"><img src="images/facebook.png" alt="facebook"></a></li>
-            <li><a href="#"><img src="images/twitter.png" alt="twitter"></a></li>
-            <li><a href="#"><img src="images/instagram.png" alt="instagram"></a></li>
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </span>
+                    <span class="title">Setting</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="help-outline"></ion-icon>
+                    </span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
         </ul>
-
-        <div class="text-blocks">
-            <div class="block">
-                <h3>Defenders of Earth</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores, sunt tempore
-                    temporibus unde veniam?
-                </p>
-            </div>
-            <div class="block">
-                <h3>How to save Water</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores, sunt tempore
-                    temporibus unde veniam?
-                </p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
-        document.addEventListener('mousemove', function(e) {
-            const bg = document.querySelector('.bg'),
-                  bird = document.querySelector('.bird'),
-                  content = document.querySelector('.content');
+        const list = document.querySelectorAll('.list');
 
-            bg.style.width = 100 + e.pageX/100 + '%';
-            bg.style.height = 100 + e.pageX/100 + '%';
+        function activeLink() {
+            list.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        }
 
-            bird.style.right = 100 + e.pageX/2 + 'px';
-
-            content.style.left = 100 + e.pageX/2.5 + 'px';
-        })
+        list.forEach(item => item.addEventListener('click', activeLink))
     </script>
 </body>
 </html>

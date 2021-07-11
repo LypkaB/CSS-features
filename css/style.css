@@ -6,149 +6,101 @@
 }
 
 body {
-    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #232c33;
 }
 
-section {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 100px;
-    overflow: hidden;
+.navigation {
+    width: 70px;
+    height: 500px;
+    background-color: #2b343b;
+    border-left: 10px solid #2b343b;
+    box-shadow: 10px 0 0 #4187f6;
+    transition: width 0.5s;
+    overflow-x: hidden;
     position: relative;
 }
 
-section header {
+.navigation:hover {
+    width: 300px;
+}
+
+.navigation ul {
     width: 100%;
-    padding: 40px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding-top: 40px;
+    padding-left: 5px;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
 }
 
-section header .logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-    position: relative;
-}
-
-section header .toggle {
-    width: 40px;
-    height: 40px;
-    background: url('../images/menu.png') no-repeat center;
-    background-size: 30px;
-    cursor: pointer;
-    position: relative;
-}
-
-.bg {
+.navigation ul li {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background-position: center;
-    object-fit: cover;
-}
-
-.bird {
-    max-height: 80%;
-    position: absolute;
-    right: 100px;
-    bottom: 0;
-    z-index: 100;
-}
-
-.content {
-    max-width: 600px;
-    position: absolute;
-    left: 100px;
-    z-index: 10;
-}
-
-.content h2 {
-    font-size: 3.5em;
-    font-weight: 400;
-    line-height: 2em;
-    color: white;
-}
-
-.content h2 span {
-    font-size: 3.5em;
-    font-weight: 800;
-    letter-spacing: 5px;
-}
-
-.content p {
-    margin-top: -15px;
-    color: white;
-}
-
-.content a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: white;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: black;
-}
-
-.sci {
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    background: white;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-}
-
-.sci li {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     list-style: none;
-}
-
-.sci li a {
-    display: inline-block;
-    transform: scale(0.5);
-}
-
-.text-blocks {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-}
-
-.text-blocks .block {
-    max-width: 500px;
-    margin-right: 40px;
-    padding: 20px;
-    background: rgba(0, 255, 0, 0.2);
     position: relative;
 }
 
-.text-blocks .block h3 {
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: white;
+.navigation ul li.active {
+    background-color: #4187f6;
 }
 
-.text-blocks .block p {
+.navigation ul li a {
+    display: flex;
+    width: 100%;
     color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.navigation ul li.active a::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #2b343b;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #4187f6;
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+.navigation ul li.active a::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #2b343b;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #4187f6;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+}
+
+.navigation ul li a .icon {
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+    position: relative;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.5em;
+    z-index: 1;
+    position: relative;
+}
+
+.navigation ul li a .title {
+    display: block;
+    height: 60px;
+    padding-left: 10px;
+    line-height: 60px;
+    white-space: nowrap;
+    position: relative;
 }
