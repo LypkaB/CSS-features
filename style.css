@@ -1,0 +1,107 @@
+/* -------------------------------------------------
+	Base styles
+   ------------------------------------------------- */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------
+	Styles
+   ------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    font-family: 'Helvetica', sans-serif;
+    background: linear-gradient(to bottom, #e3f7ff 0%, #e3f7ff 100%);
+}
+
+.box {
+    margin: 15px 20px;
+    padding: 9px 15px 20px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.main-title {
+    font-size: 18px;
+}
+
+.separate-line {
+    width: 100%;
+    height: 1px;
+    background-color: #c4c4c4;
+    border: none;
+    position: absolute;
+    left: 0;
+}
+
+.block-criteria {
+    margin-top: 50px;
+    display: flex;
+    column-gap: 20px;
+}
+
+.block-criteria div {
+    position: relative;
+}
+
+.block-criteria__form {
+    padding-left: 0;
+    padding-bottom: 10px;
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: #c4c4c4;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 9;
+}
+
+.form-activity {
+    width: 150px;
+}
+
+.form-status {
+    width: 115px;
+}
+
+.block-criteria label {
+    font-size: 14px;
+    color: #c4c4c4;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s linear 0s;
+}
+
+.block-criteria__form:focus + label {
+    transform: translateY(-1em) scale(0.8);
+    transition: all 0.3s linear 0s;
+}
