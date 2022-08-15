@@ -27,81 +27,154 @@ li {
 	Styles
    ------------------------------------------------- */
 * {
+    border: 0;
     margin: 0;
     padding: 0;
 }
 
-.body {
-    font-family: 'Helvetica', sans-serif;
-    background: linear-gradient(to bottom, #e3f7ff 0%, #e3f7ff 100%);
+:root {
+    --hue: 223;
+    --bg1: hsl(var(--hue), 10%, 90%);
+    --bg2: hsl(var(--hue), 10%, 80%);
+    --fg1: hsl(var(--hue), 10%, 10%);
+    --fg2: hsl(var(--hue), 10%, 20%);
+    --primary1: hsl(var(--hue), 90%, 55%);
+    --primary2: hsl(var(--hue), 90%, 45%);
+    font-size: calc(20px + (40 - 20) * (100vw - 320px) / (1280 - 320));
 }
 
-.box {
-    margin: 15px 20px;
-    padding: 9px 15px 20px;
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    position: relative;
+body, button {
+    font: 1em/1.5 Nunito, sans-serif;
 }
 
-.main-title {
-    font-size: 18px;
+body {
+    background-color: var(--bg1);
+    color: var(--fg1);
+    height: 100vh;
+    display: grid;
+    place-items: center;
 }
 
-.separate-line {
-    width: 100%;
-    height: 1px;
-    background-color: #c4c4c4;
-    border: none;
-    position: absolute;
-    left: 0;
-}
-
-.block-criteria {
-    margin-top: 50px;
-    display: flex;
-    column-gap: 20px;
-}
-
-.block-criteria div {
-    position: relative;
-}
-
-.block-criteria__form {
-    padding-left: 0;
-    padding-bottom: 10px;
+/* Main button styles */
+.btn {
     background-color: transparent;
-    border-width: 0 0 1px 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-color: #c4c4c4;
-    cursor: pointer;
-    outline: none;
+    border-radius: 1.5em;
+    display: block;
     position: relative;
-    z-index: 9;
+    width: 7.5em;
+    height: 3em;
+    transition: width 0.3s ease-in-out;
 }
 
-.form-activity {
-    width: 150px;
+.btn:not(:disabled):active {
+    transform: translateY(0.1em);
 }
 
-.form-status {
-    width: 115px;
+.btn__text {
+    background-color: var(--primary1);
+    border-radius: inherit;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    transition: background-color 0.15s linear,
+    color 0.15s 0.3s ease-in-out;
+    width: 100%;
 }
 
-.block-criteria label {
-    font-size: 14px;
-    color: #c4c4c4;
+.btn:not(:disabled):focus .btn__text,
+.btn:not(:disabled):hover .btn__text {
+    background-color: var(--primary2);
+}
+
+.btn__progress {
+    overflow: visible;
     position: absolute;
+    top: 0;
     left: 0;
-    bottom: 10px;
-    z-index: 1;
-    cursor: pointer;
-    transition: all 0.3s linear 0s;
+    width: 3em;
+    height: 3em;
+    visibility: hidden;
 }
 
-.block-criteria__form:focus + label {
-    transform: translateY(-1em) scale(0.8);
-    transition: all 0.3s linear 0s;
+.btn__progress-track {
+    r: 12px;
+    stroke: var(--bg2);
+    stroke-width: 24;
+}
+
+.btn__progress-fill {
+    stroke: var(--primary1);
+    stroke-dashoffset: 125.66;
+}
+
+.btn__progress-check {
+    stroke: hsl(0, 0%, 100%);
+    stroke-dashoffset: 34;
+}
+
+/* Both states */
+.btn--running,
+.btn--done {
+    outline: none;
+    pointer-events: none;
+    width: 3em;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.btn--running .btn__text,
+.btn--done .btn__text {
+    color: transparent;
+    transition: background-color 0.3s ease-in-out,
+    visibility 0.3s steps(1);
+}
+
+.btn--running .btn__progress,
+.btn--done .btn__progress {
+    visibility: visible;
+}
+
+/* Running state */
+.btn--running .btn__text {
+    background-color: var(--bg2);
+    visibility: hidden;
+}
+
+.btn--running .btn__progress {
+    transition: visibility 0.3s 0.3s steps(1, start);
+}
+
+.btn--running .btn__progress-track {
+    r: 20px;
+    stroke-width: 8;
+    transition: r 0.3s 0.3s ease-in-out,
+    stroke-width 0.3s 0.3s ease-in-out;
+}
+
+.btn--running .btn__progress-fill {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s 0.6s linear;
+}
+
+/* Done state */
+.btn--done .btn__progress-track {
+    stroke: var(--primary1);
+    transition: r 0.3s ease-in-out,
+    stroke-width 0.3s ease-in-out;
+}
+
+.btn--done .btn__progress-check {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s 0.3s ease-out;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg1: hsl(var(--hue), 10%, 10%);
+        --bg2: hsl(var(--hue), 10%, 20%);
+        --fg1: hsl(var(--hue), 10%, 90%);
+        --fg2: hsl(var(--hue), 10%, 80%);
+    }
 }
